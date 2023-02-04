@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
         #pragma omp single
         {
             for (int i = 1; i <= dicecount; i++) {
-                #pragma omp task
+                #pragma omp task firstprivate(i)
                 {
                     char line[1024];
                     snprintf(line, sizeof line, "simulating %dd%.0f (thread: %d)\n", i, dicesides, omp_get_thread_num());
